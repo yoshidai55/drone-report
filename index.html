@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ドローン最新情報レポート</title>
+<style>
+  :root{
+    --bg:#0f1623; --panel:#1a2332; --panel2:#212d40; --text:#e8edf4; --muted:#9fb0c3;
+    --accent:#4da3ff; --new:#ff6b6b; --upd:#ffb84d;
+    --c1:#4da3ff; --c2:#4dd599; --c3:#b07cff; --c4:#ff8fa3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  header{padding:28px 24px 18px;text-align:center;background:linear-gradient(135deg,#16213a,#0f1623);border-bottom:1px solid #2a3a52}
+  header h1{font-size:1.5rem;letter-spacing:.05em}
+  header p{color:var(--muted);font-size:.85rem;margin-top:6px}
+  #lastUpdated{color:var(--accent);font-weight:bold}
+  nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:14px;background:var(--panel);position:sticky;top:0;z-index:10;border-bottom:1px solid #2a3a52}
+  nav button{background:var(--panel2);color:var(--text);border:1px solid #344660;border-radius:20px;padding:8px 18px;cursor:pointer;font-size:.9rem;transition:.2s}
+  nav button:hover{border-color:var(--accent)}
+  nav button.active{background:var(--accent);color:#0b1220;font-weight:bold;border-color:var(--accent)}
+  main{max-width:960px;margin:0 auto;padding:24px 16px 60px}
+  section.tab{display:none}
+  section.tab.active{display:block;animation:fade .3s}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .overview{background:var(--panel);border-left:4px solid var(--accent);border-radius:8px;padding:16px 18px;margin-bottom:20px;font-size:.93rem;color:#cdd9e8}
+  .card{background:var(--panel);border:1px solid #2a3a52;border-radius:10px;padding:16px 18px;margin-bottom:14px}
+  .card h3{font-size:1rem;margin-bottom:6px}
+  .card .meta{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+  .card p{font-size:.9rem;color:#cdd9e8}
+  .card a{color:var(--accent);text-decoration:none;font-size:.82rem}
+  .card a:hover{text-decoration:underline}
+  .badge{display:inline-block;font-size:.7rem;font-weight:bold;padding:2px 8px;border-radius:10px;margin-right:6px;vertical-align:middle}
+  .badge.new{background:var(--new);color:#fff}
+  .badge.update{background:var(--upd);color:#3a2800}
+  .badge.jp{background:#2e4a6b;color:#bcd7f5}
+  .badge.world{background:#3b3260;color:#d4c8f5}
+  .topic-title{font-size:1.2rem;margin:8px 0 14px;padding-bottom:8px;border-bottom:2px solid}
+  #t1 .topic-title{border-color:var(--c1)} #t2 .topic-title{border-color:var(--c2)}
+  #t3 .topic-title{border-color:var(--c3)} #t4 .topic-title{border-color:var(--c4)}
+  .log-day{background:var(--panel);border:1px solid #2a3a52;border-radius:10px;padding:16px 18px;margin-bottom:16px}
+  .log-day h3{color:var(--accent);font-size:1rem;margin-bottom:10px}
+  .log-day ul{list-style:none}
+  .log-day li{font-size:.88rem;padding:5px 0;border-bottom:1px dashed #2a3a52;color:#cdd9e8}
+  .log-day li:last-child{border-bottom:none}
+  .cat{font-weight:bold;margin-right:6px}
+  .cat.i1{color:var(--c1)} .cat.i2{color:var(--c2)} .cat.i3{color:var(--c3)} .cat.i4{color:var(--c4)}
+  footer{text-align:center;color:var(--muted);font-size:.75rem;padding:20px;border-top:1px solid #2a3a52}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ドローン最新情報レポート</h1>
+  <p>保険 ／ 産業利用 ／ 軍事利用 ／ テロ対策 ― 日本＋海外の動向を毎日更新</p>
+  <p>最終更新: <span id="lastUpdated">2026年6月12日（金）7:00</span></p>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('t1',this)">① 保険</button>
+  <button onclick="showTab('t2',this)">② 産業利用</button>
+  <button onclick="showTab('t3',this)">③ 軍事利用</button>
+  <button onclick="showTab('t4',this)">④ テロ対策</button>
+  <button onclick="showTab('log',this)">📋 更新履歴</button>
+</nav>
+
+<main>
+
+<!-- ============ ① 保険 ============ -->
+<section id="t1" class="tab active">
+  <h2 class="topic-title">① ドローン保険</h2>
+  <div class="overview">
+    世界のドローン保険市場は2026年に約17.3億ドル（前年比+10.1%）、2030年には25.5億ドルへ成長見込み。日本では100g以上の機体登録義務化に伴い賠償責任保険が実質必須化。AI・IoTを活用したリスク評価、飛行時間ベースの従量課金型保険、パラメトリック保険など新商品が拡大中。
+  </div>
+  <!-- INSERT:t1 -->
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>損保ジャパン、DJI製品向けドローン保険サービスを拡充</h3>
+    <div class="meta">2026年1月承認 ｜ 出典: <a href="https://drone.aeroentry.jp/insurance/liability" target="_blank">AEROENTRY</a></div>
+    <p>DJI賠償責任保険・機体保険のサービスが2026年版に更新。広告宣伝活動による権利侵害補償など新オプションが2026年1月10日以降の保険始期から追加された。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>世界市場：従量課金型・パラメトリック保険が主流トレンドに</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://www.thebusinessresearchcompany.com/report/drone-insurance-global-market-report" target="_blank">The Business Research Company</a></div>
+    <p>飛行時間・利用実態に基づき保険料を算定するUsage-Basedモデルと、事前定義された条件で迅速に保険金を支払うパラメトリック保険が拡大。商用パイロットの保険加入率は2025年末で約75%に到達。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>業種特化型保険の充実 ― 農業用は農薬汚染補償が標準に</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://smart-mart.jp/robot-insurance/guide/drone/" target="_blank">Smartmart</a> / <a href="https://drone-hoken.jp/" target="_blank">東京海上日動</a></div>
+    <p>ホビー用は年5千〜1.5万円の賠償責任保険、業務用は賠償＋機体保険の併用が標準化。農業ドローンには農薬汚染補償を含む特化型商品が定着。25kg以上の機体は保険加入が法的に必須。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>アジア太平洋が最速成長地域に（CAGR 10.5%）</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://www.intelmarketresearch.com/drone-insurance-market-44592" target="_blank">Intel Market Research</a></div>
+    <p>アジア太平洋地域が世界市場の約24%を占め、2026〜2033年にかけ年率10.5%で成長する見通し。物流・点検用途の商用ドローン拡大が牽引。</p>
+  </div>
+</section>
+
+<!-- ============ ② 産業利用 ============ -->
+<section id="t2" class="tab">
+  <h2 class="topic-title">② 産業への利用</h2>
+  <div class="overview">
+    世界のドローン市場は2026年に636億ドル、2032年には1,270億ドルへ（年率約12%成長）。点検・保守分野は2026年の138億ドルから2036年に248億ドルへ拡大し、農業を抜いて最大の商用用途になる見込み。日本では「はたらくドローン」をテーマにJapan Drone 2026が開催され、物流・インフラ点検・農業での社会実装が加速。
+  </div>
+  <!-- INSERT:t2 -->
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>Japan Drone 2026 開催 ― 内閣官房が初出展、地方創生×ドローン</h3>
+    <div class="meta">2026年6月3〜5日・幕張メッセ ｜ 出典: <a href="https://drone.jp/special/20260605110135127928.html" target="_blank">DRONE.jp</a></div>
+    <p>第11回となる国内最大のドローン専門展示会。「各産業界で期待されるドローンの利活用―はたらくドローン」をテーマに、内閣官房が初出展し地方創生に向けた利活用事例を公開した。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>下水道管路点検でドローン需要が急増 ― 道路陥没事故を受け点検義務化へ</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://d-aerial.com/blog/post-yca4cd05off2yi" target="_blank">D-aerial</a></div>
+    <p>2025年1月の道路陥没事故を機に国交省が下水道管路の緊急点検を要請。狭所空間点検用ドローンの需要が急増し、全国自治体で点検義務化・調査手法見直しが進む。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>米FAA「Part 108」BVLOS（目視外飛行）最終規則が2026年内にも成立へ</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://uavcoach.com/inside-bvlos/" target="_blank">UAV Coach</a></div>
+    <p>目視外飛行を包括的に認めるPart 108規則の最終化が2026〜2027年に見込まれ、配送・点検分野で数十億ドル規模の市場開放につながると期待される。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>ドローン配送市場は2026年に10〜15億ドル規模 ― 食品配送が最大セグメント</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://www.companieshistory.com/drone-market/" target="_blank">Drone Market Statistics</a></div>
+    <p>Uber EatsやDomino'sなどが空中配送を拡大。点検・保守はIDTechEx予測で2030年までに商用ドローン収益の25%超を占め、農業を抜いて最大用途になる見込み。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>農業ドローンは「散布機材」から「農業経営の記録インフラ」へ</h3>
+    <div class="meta">2026年4月 ｜ 出典: <a href="https://www.gii.co.jp/report/tbrc1990972-agriculture-drones-global-market-report.html" target="_blank">GII調査レポート</a></div>
+    <p>DJI Agricultureの第5回産業レポート（2026年4月）が示す通り、散布から営農データ管理へ役割が拡大。農業用ドローン世界市場は2026年に44.1億ドルへ成長見込み。</p>
+  </div>
+</section>
+
+<!-- ============ ③ 軍事利用 ============ -->
+<section id="t3" class="tab">
+  <h2 class="topic-title">③ 軍事利用</h2>
+  <div class="overview">
+    ウクライナ戦争を契機にドローンが現代戦の中核に。日本は2026年度予算で無人機防衛に1,000億円超を計上し「SHIELD」構想（無人アセットによる多層的沿岸防衛）を推進。米国はCCA（協調戦闘機）プログラムや長距離偵察ドローンの大量調達を進め、海上無人艇（USV）の実戦運用も拡大している。
+  </div>
+  <!-- INSERT:t3 -->
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>防衛省、無人機防衛「SHIELD」構想に1,001億円 ― UAV/USV/UUVを10モデル調達</h3>
+    <div class="meta">2026年度予算 ｜ 出典: <a href="https://www.sbbit.jp/article/cont1/183721" target="_blank">ビジネス+IT</a></div>
+    <p>2027年度中の多層的沿岸防衛体制構築を明記。概算要求では無人機防衛能力強化に前年比約3倍の3,128億円を計上。陸幕に「無人アセット防衛能力推進室」を2026年4月新設。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>陸自、自爆型ドローン310機を2026年度に導入へ ― 島嶼防衛を強化</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://news.yahoo.co.jp/articles/c3b0b4fd16c9267402cc866b247b32bfb127108a" target="_blank">乗りものニュース</a></div>
+    <p>予算案に32億円を計上。陸自は既にUAV約1,200機を保有し、小型攻撃用UAV I型は豪DefendTex社製Drone40が落札。自衛隊ドローンの国産化率は約3割で国産化議論も活発化。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>米陸軍、AeroVironment P550偵察ドローン82機を1.17億ドルで調達</h3>
+    <div class="meta">2026年6月3日 ｜ 出典: <a href="https://www.armyrecognition.com/news/army-news/2026/aerovironment-p550-drone-us-army-117m-contract-long-range-reconnaissance" target="_blank">Army Recognition</a></div>
+    <p>大隊レベルの長距離偵察能力を拡充。P550は5時間の航続、VTOL、モジュラーペイロード、AI目標認識を備え、偵察・通信中継・電子戦・攻撃を切替可能。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>ウクライナ、セヴァストポリ・マリウポリ港やロシア製油所へドローン攻撃を継続</h3>
+    <div class="meta">2026年6月10日 ｜ 出典: <a href="https://www.aljazeera.com/news/2026/6/10/ukrainian-drones-strike-sevastopol-museum-and-key-russian-oil-refineries" target="_blank">Al Jazeera</a></div>
+    <p>クイビシェフ製油所には少なくとも29機のドローンが攻撃。ロシアは夜間列車の運行を削減するなど、長距離ドローン攻撃が後方インフラに広く影響を与えている。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>米空軍、次世代無人戦闘機YFQ-48が登場 ― CCAプログラム第2世代へ</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://www.armyrecognition.com/news/aerospace-news/2026/yfq-48-unmanned-aircraft-emerges-as-next-generation-drone-for-u-s-air-force-collaborative-combat-program" target="_blank">Army Recognition</a></div>
+    <p>有人機を支援する攻撃・センシング・電子戦用無人機。海上では無人艇Saronic Corsairによる米軍パイロット救助が初めて実施され、無人アセットの運用範囲が拡大。</p>
+  </div>
+</section>
+
+<!-- ============ ④ テロ対策 ============ -->
+<section id="t4" class="tab">
+  <h2 class="topic-title">④ テロ対策（カウンタードローン / C-UAS）</h2>
+  <div class="overview">
+    ドローンの悪用（重要インフラ・空港侵入、要人警護への脅威）に対抗するC-UAS（カウンタードローン）市場が急拡大。米国はNDAA 2026で州・地方警察にC-UAS運用権限を付与し、5億ドルの補助金プログラムを開始。日本でも迎撃ドローンの実用化や空港・発電所へのセンサー導入が進む。
+  </div>
+  <!-- INSERT:t4 -->
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>Terra Drone、40万円の迎撃ドローン「Terra A1」が長距離無人機の撃墜に成功</h3>
+    <div class="meta">2026年4月28日 ｜ 出典: <a href="https://innovatopia.jp/drones/drones-news/99612/" target="_blank">Innovatopia</a></div>
+    <p>実運用環境下で長距離無人機脅威への対処能力を確認。低コスト迎撃機の「コンバットプルーブン（実戦証明）」時代の幕開けとされる。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>米NDAA 2026、州・地方警察にカウンタードローン運用権限を付与</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://www.unmannedairspace.info/counter-uas-systems-and-policies/c-uas-provisions-in-us-ndaa-2026-throw-pending-bipartisan-legislation-into-question/" target="_blank">Unmanned Airspace</a></div>
+    <p>長年の連邦法上の制限を撤廃し、州・地方・部族警察と矯正施設が条件付きでC-UAS技術を配備可能に。FEMAは5億ドル規模のC-UAS補助金プログラムを開始。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge world">海外</span>
+    <h3>FAAと国防総省がC-UAS運用協定 ― テキサス州の空域混乱を受け新ルール</h3>
+    <div class="meta">2026年4月 ｜ 出典: <a href="https://dronelife.com/2026/04/13/aa-counter-drone-agreement-airspace-rules/" target="_blank">DRONELIFE</a></div>
+    <p>2026年初頭、エルパソ空港では安全審査なしのカウンタードローン使用で運航停止が発生、政府ドローンの誤撃墜も。これを受けC-UAS配備の安全審査・調整手続きが制度化された。</p>
+  </div>
+  <div class="card">
+    <span class="badge new">NEW</span><span class="badge jp">日本</span>
+    <h3>空港・発電所など重要インフラへのC-UASセンサー導入が進展</h3>
+    <div class="meta">2026年 ｜ 出典: <a href="https://www.global.toshiba/jp/products-solutions/defense/c-uas/special.html" target="_blank">東芝</a> / <a href="https://drone-guide.jp/2662/" target="_blank">DRONE GUIDE</a></div>
+    <p>レーダー・RFセンサー・カメラを組み合わせた多層検知システムが標準に。大規模空港では目視確認が困難なため、センサーベースの常時監視体制の導入が推奨されている。</p>
+  </div>
+</section>
+
+<!-- ============ 更新履歴 ============ -->
+<section id="log" class="tab">
+  <h2 class="topic-title" style="border-color:var(--accent)">📋 更新履歴</h2>
+  <div class="overview">毎朝7時に自動で情報収集を行い、新着・更新内容をここに記録します。各記事の <span class="badge new">NEW</span> は直近の更新で追加された項目です。</div>
+  <!-- INSERT:log -->
+  <div class="log-day">
+    <h3>2026年6月12日（金）― 初回作成</h3>
+    <ul>
+      <li><span class="cat i1">[保険]</span>初回情報収集：損保ジャパンのDJI向け保険拡充、従量課金型・パラメトリック保険のトレンド、市場規模17.3億ドル（+10.1%）など4件を掲載</li>
+      <li><span class="cat i2">[産業]</span>初回情報収集：Japan Drone 2026開催、下水道点検需要急増、FAA Part 108、配送市場、農業ドローンの役割拡大など5件を掲載</li>
+      <li><span class="cat i3">[軍事]</span>初回情報収集：SHIELD構想1,001億円、陸自の自爆型ドローン310機導入、米陸軍P550調達、ウクライナ戦況、YFQ-48など5件を掲載</li>
+      <li><span class="cat i4">[テロ対策]</span>初回情報収集：Terra A1迎撃成功、米NDAA 2026の権限付与、FAA-国防総省協定、国内インフラへのC-UAS導入など4件を掲載</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  本レポートは公開情報をもとに毎日自動更新されます ｜ 各記事の出典リンクから原文をご確認ください
+</footer>
+
+<script>
+function showTab(id, btn){
+  document.querySelectorAll('section.tab').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
